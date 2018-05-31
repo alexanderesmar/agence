@@ -1,11 +1,10 @@
 
 <?php
-if (isset($GLOBALS["res"])) {
-  $res=$GLOBALS["res"];
+if (isset($res) && $res!="empty"  ) {
 
 ?>
 
-<div id="show_relatorio" style="padding-left: 30%;" >
+<div id="show_relatorio" align="center">
 
 <?php foreach ($res as $iterador) { 
 
@@ -16,7 +15,7 @@ $t4=0;
 
   ?>
 <br>
-<table class="greyGridTable">
+<table  style="overflow-x:auto" class="greyGridTable">
 <thead>
 <tr>
 <td colspan="5" > {{$iterador['nombre']}} </td>
@@ -44,24 +43,25 @@ if ($res[$iterador['codigo_usuario']]['fecha'][ $periodo ]['lucro']>0) {
 else{
   $color='red';
 }
+
 ?>
 <tr>
 <td>{{$periodo}}</td>
-<td>{{$res[$iterador['codigo_usuario']]['fecha'][ $periodo ]['liquida'] }}</td>
-<td>{{$res[$iterador['codigo_usuario']]['salario'] }}</td>
-<td>{{$res[$iterador['codigo_usuario']]['fecha'][ $periodo ]['comision'] }}</td>
-<td style="color: {{$color}};" >{{$res[$iterador['codigo_usuario']]['fecha'][ $periodo ]['lucro'] }}</td>
+<td>{{'R$ '.number_format($res[$iterador['codigo_usuario']]['fecha'][ $periodo ]['liquida'],2) }}</td>
+<td>{{'R$ '.number_format($res[$iterador['codigo_usuario']]['salario']) }}</td>
+<td>{{'R$ '.number_format($res[$iterador['codigo_usuario']]['fecha'][ $periodo ]['comision'],2) }}</td>
+<td style="color: {{$color}};">{{'R$ '.number_format($res[$iterador['codigo_usuario']]['fecha'][ $periodo ]['lucro'],2) }}</td>
 </tr>
 @endforeach
 </tbody>
 <tfoot>
 <tr>
 <td>Saldo</td>
-<td>{{$t1}}</td>
-<td>{{$t2}}</td>
-<td>{{$t3}}</td>
+<td>{{'R$ '.number_format($t1,2)}}</td>
+<td>{{'R$ '.number_format($t2,2)}}</td>
+<td>{{'R$ '.number_format($t3,2)}}</td>
 <?php if ($t4>0) { $color='green'; } else{ $color='red'; } ?>
-<td style="color: {{$color}};" >{{$t4}}</td>
+<td style="color: {{$color}};" >{{'R$ '.number_format($t4,2)}}</td>
 </tr>
 </tfoot>
 </table> 
@@ -70,5 +70,8 @@ else{
 
 
 <?php 
+}else if($res=="empty"){ ?>
+empty
+<?php
 }#fin if del global
 ?>

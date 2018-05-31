@@ -44,17 +44,20 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
     // Homepage Route
     Route::get('/', ['as' => 'public.home', 'uses' => 'UserController@index']);
 
-    // Agence Grahps
+    #########################################################################################
+    #########################################################################################
+    // Agence Grahps#########################################################################
 
     Route::get('/performance_comercial', 'PerformanceController@index');
 
-    Route::get('/performance/{submit_type}/{send_selected}/{fecha_i}/{fecha_f}', 'PerformanceController@calc_show');
+    Route::get('relatorio', 'PerformanceController@relatorio');
 
-    Route::post('/performance/', 'PerformanceController@calc_view');
+    Route::get('grafico', 'PerformanceController@grafico');
 
-    #Route::resource('/performance_comercial', 'PerformanceController');
+    Route::get('pizza', 'PerformanceController@pizza');
 
-    #Route::get('/performance_comercial', ['as' => 'public.home', 'uses' => 'UserController@index']);
+    ##############################################################################################
+    ##############################################################################################
 
     // Activation Routes
     Route::get('/activation-required', ['uses' => 'Auth\ActivateController@activationRequired'])->name('activation-required');

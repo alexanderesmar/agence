@@ -104,14 +104,26 @@
         </div>
 
         {{-- Scripts --}}
-        {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js', array('type' => 'text/javascript')) !!}
-        {!! HTML::script('//code.getmdl.io/1.1.3/material.min.js', array('type' => 'text/javascript')) !!}
-        {!! HTML::script('https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.4/dialog-polyfill.min.js', array('type' => 'text/javascript')) !!}
+
+
+        <script src="{{ url('js/jquery.min.js') }}"></script>
+        
+        {{-- {!! HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js', array('type' => 'text/javascript')) !!}
+
+
+ --}}
+        <script src="{{ asset('/js/material.min.js') }}"></script>
+
+        {{-- {!! HTML::script('//code.getmdl.io/1.1.3/material.min.js', array('type' => 'text/javascript')) !!} --}}
+
+        <script src="{{ asset('/js/dialog-polyfill.min.js') }}"></script>
+        
+        {{-- {!! HTML::script('https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.4/dialog-polyfill.min.js', array('type' => 'text/javascript')) !!} --}}
+
 
         <script src="{{ mix('/js/app.js') }}"></script>
         <script src="{{ mix('/js/mdl.js') }}"></script>
 
-        {!! HTML::script('//maps.googleapis.com/maps/api/js?key='.env("GOOGLEMAPS_API_KEY").'&libraries=places&dummy=.js', array('type' => 'text/javascript')) !!}
 
         @yield('footer_scripts')
 

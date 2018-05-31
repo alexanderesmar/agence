@@ -1,8 +1,9 @@
 table.greyGridTable {
   border: 2px solid #FFFFFF;
-  width: 100%;
+  width: 80%;
   text-align: center;
   border-collapse: collapse;
+  table-layout:fixed;
 }
 table.greyGridTable td, table.greyGridTable th {
   border: 1px solid #FFFFFF;

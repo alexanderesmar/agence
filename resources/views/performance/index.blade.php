@@ -16,7 +16,11 @@
 
 ?>
 <link rel="stylesheet" type="text/css" href="{{ url('/css/table_custom.css') }}">
+<script src="{{ url('js/jquery.min.js') }}"></script>
 <script src="{{ url('js/chartjs/Chart.bundle.min.js') }}"></script>
+<script src="{{ url('js/gchartloader.js') }}"></script>
+
+
 {!! csrf_field() !!}
 @section('breadcrumbs')
 
